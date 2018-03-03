@@ -1,4 +1,4 @@
-package de.bootcamp.DemoOne;
+package de.webapp.spring.one;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class DemoOneApplicationTests {
+public class ApplicationOneTests {
 
 	@Test
 	public void contextLoads() {

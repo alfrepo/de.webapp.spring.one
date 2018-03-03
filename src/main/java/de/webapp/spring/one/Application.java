@@ -1,12 +1,12 @@
-package de.bootcamp.DemoOne;
+package de.webapp.spring.one;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class  DemoOneApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoOneApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 }
