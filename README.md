@@ -1,5 +1,5 @@
 # The Demo application
-Has a backend a a Frontend
+Has a backend a a frontend.
 
 ##  Frontend
 Angular4. `angular-cli` is used as cli  tool to automate angular tasks, like build, run, serve
@@ -34,7 +34,7 @@ ng build --aot
 ng serve --aot
 ```
 
-###### Easily test your app locally while developing.
+##### Easily test your app locally while developing.
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ```
@@ -43,14 +43,14 @@ ng serve --host 0.0.0.0 --port 4201 --live-reload-port 49153
 ```
 
 
-###### run the unit tests karma
+##### run the unit tests karma
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ``` 
 ng test
 ```
 
-###### run e2e tests, e.g. via procractor
+##### run e2e tests, e.g. via procractor
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ```
@@ -58,7 +58,7 @@ ng e2e
 ```
 
 
-###### Further help
+##### Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
@@ -68,28 +68,39 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 Spring Boot. Use the wrapper "gradlew" because it will download the right version of gradle
 
 
-###### builds / starts the whole project. 
+##### builds / starts the whole project. 
 Build and start Backend and Frontend. The frontend is build, because an npm task is defined as dependend
 
 ```
 gradlew bootRun
 ```
 
-###### build the backend
+##### build the backend
 ```
 gradlew build
  ```
 
-###### create a fat jar 
+##### create a fat jar 
 Create a fat jar runnable via "java -jar complete.jar"
 ```
-gradlew BootJar
+gradlew bootJar
 ```
 
-###### create a WAR  
+##### create a WAR  
 Create a WAR deployable to tomcat. On Tomcat Java7 is required. 
 Tested with Tomcat8. 
+
+The deployed WAR has usually another URL, than root \
+To modify the base Frontend URL of the application - one should pass the URL, when building the applicaiton. 
+
 ```
-gradlew BootWar
+ng build --base-href /de.webapp.spring.one-0.0.1-SNAPSHOT/
+gradlew bootWar
 ```
+After that the WAR may be deployed and will accept the URL. Otherwise the app will reutrn `404 Responses`.
+
+![alt text](https://lh3.googleusercontent.com/-338MJ6cYX3Q/Wp1guI7L-VI/AAAAAAAAAEI/-FSKHmUbWFw7vpyrMP1MVinhuwC88B12QCHMYCw/s0/2018-03-05_16-22-31.png "DeployToTomcat8")
+
+
+![alt text](https://lh3.googleusercontent.com/-kxfIr26UFBM/Wp1g3MkkM8I/AAAAAAAAAEM/vWEQkwvDedQQxAUGitAt5b1dKTAXp8nPQCHMYCw/s0/2018-03-05_16-23-08.png "Run")
 
