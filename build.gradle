@@ -1,13 +1,18 @@
 buildscript {
-	ext {
-		springBootVersion = '2.0.0.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+    ext {
+        springBootVersion = '2.0.0.RELEASE'
+    }
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "com.moowork.gradle:gradle-node-plugin:1.1.1"
+    }
 }
 
 
@@ -16,11 +21,54 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'java'
-
 // enable building wars: gradlew BootWar
 apply plugin: 'war'
 
+// fuilding frontend with npm
+// Docs https://github.com/srs/gradle-node-plugin/blob/master/docs/node.md
+apply plugin: "com.moowork.node"
 
+// for com.moowork.node
+node {
+    // Set the work directory for unpacking node
+    workDir = file("${project.buildDir}/frontend")
+
+    // Set the work directory for NPM
+    npmWorkDir = file("${project.buildDir}/npm")
+
+}
+
+// add our development build NpmTask named buildClientDev
+// from com.moowork.node
+task buildClientDev(type: NpmTask, dependsOn: 'npmInstall') {
+    group = 'build'
+    description = 'Compile client side folder for development'
+    args = ['run', 'buildDev']
+}
+
+//// from com.moowork.node
+//task buildClient(type: NpmTask, dependsOn: 'npmInstall') {
+//    group = 'build'
+//    description = "Compile client side folder for production"
+//    args = ['run', 'build']
+//}
+//
+//// setup watcher on this ng build to link to our overall java development build.
+//// from com.moowork.node
+//task buildClientWatch(type: NpmTask, dependsOn: 'npmInstall') {
+//    group = 'application'
+//    description = "Build and watches the client side assets for rebuilding"
+//    args = ['run', 'buildWatch']
+//}
+
+// here we define, that task "buildClientDev" must be triggered on "gradlew bootrun"
+bootRun.dependsOn(buildClientDev)
+
+// here we define, that task "buildCLient" must be triggered on "gradlew build", which creates a fat jar
+//jar.dependsOn(buildClient)
+
+npm_run_build.inputs.dir new File(projectDir, "frontend")
+npm_run_build.outputs.dir new File(projectDir, "build/dist")
 
 group = 'de.webapp.spring'
 version = '0.0.1-SNAPSHOT'
@@ -28,7 +76,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
-	mavenCentral()
+    mavenCentral()
     maven { url "http://repo.spring.io/snapshot" }
     maven { url "http://repo.spring.io/milestone" }
     maven { url 'https://repo.spring.io/libs-snapshot' }
@@ -39,7 +87,7 @@ dependencies {
     // makes the web application startable
     compile("org.springframework.boot:spring-boot-starter")
     compile("org.springframework.boot:spring-boot-starter-web")
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 
     //data
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
