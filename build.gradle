@@ -12,6 +12,9 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath "com.moowork.gradle:gradle-node-plugin:1.1.1"
+
+        // https://github.com/dorongold/gradle-task-tree
+        classpath "gradle.plugin.com.dorongold.plugins:task-tree:1.3"
     }
 }
 
@@ -21,22 +24,17 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'java'
+
+// prints task dependency tree report to the console: gradlew tastkTree build, gradlew tastkTree bootRun
+// https://github.com/dorongold/gradle-task-tree
+apply plugin: "com.dorongold.task-tree"
+
 // enable building wars: gradlew BootWar
 apply plugin: 'war'
 
 // fuilding frontend with npm
-// Docs https://github.com/srs/gradle-node-plugin/blob/master/docs/node.md
+// https://github.com/srs/gradle-node-plugin/blob/master/docs/node.md
 apply plugin: "com.moowork.node"
-
-// for com.moowork.node
-node {
-    // Set the work directory for unpacking node
-    workDir = file("${project.buildDir}/frontend")
-
-    // Set the work directory for NPM
-    npmWorkDir = file("${project.buildDir}/npm")
-
-}
 
 // add our development build NpmTask named buildClientDev
 // from com.moowork.node
@@ -46,29 +44,27 @@ task buildClientDev(type: NpmTask, dependsOn: 'npmInstall') {
     args = ['run', 'buildDev']
 }
 
-//// from com.moowork.node
-//task buildClient(type: NpmTask, dependsOn: 'npmInstall') {
-//    group = 'build'
-//    description = "Compile client side folder for production"
-//    args = ['run', 'build']
-//}
-//
-//// setup watcher on this ng build to link to our overall java development build.
-//// from com.moowork.node
-//task buildClientWatch(type: NpmTask, dependsOn: 'npmInstall') {
-//    group = 'application'
-//    description = "Build and watches the client side assets for rebuilding"
-//    args = ['run', 'buildWatch']
-//}
+// from com.moowork.node
+task buildClient(type: NpmTask, dependsOn: 'npmInstall') {
+    group = 'build'
+    description = "Compile client side folder for production"
+    args = ['run', 'build']
+}
+
+// setup watcher on this ng build to link to our overall java development build.
+// from com.moowork.node
+task buildClientWatch(type: NpmTask, dependsOn: 'npmInstall') {
+    group = 'application'
+    description = "Build and watches the client side assets for rebuilding"
+    args = ['run', 'buildWatch']
+}
 
 // here we define, that task "buildClientDev" must be triggered on "gradlew bootrun"
 bootRun.dependsOn(buildClientDev)
 
 // here we define, that task "buildCLient" must be triggered on "gradlew build", which creates a fat jar
-//jar.dependsOn(buildClient)
+jar.dependsOn(buildClient)
 
-npm_run_build.inputs.dir new File(projectDir, "frontend")
-npm_run_build.outputs.dir new File(projectDir, "build/dist")
 
 group = 'de.webapp.spring'
 version = '0.0.1-SNAPSHOT'
