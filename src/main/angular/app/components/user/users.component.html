@@ -1,0 +1,21 @@
+<!--TODO: add some info, where the current service comes from. Backend, external.-->
+
+<div class="container">
+  <h4>Users</h4>
+  <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+    <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">Id</th>
+      <th class="mdl-data-table__cell--non-numeric">Full Name</th>
+      <th class="mdl-data-table__cell--non-numeric">Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users">
+      <td style="text-align: left; width:10%">{{user.id}}</td>
+      <td style="text-align: left; width:20%">{{user.name}}</td>
+      <td style="text-align: left; width:70%">{{user.email}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

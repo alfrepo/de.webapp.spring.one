@@ -4,5 +4,11 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  backendBase: 'http://localhost:80',
+  backendApiUri: '/api/users',
+
+  trainsBase: 'https://api.deutschebahn.com',
+  trainsApiUri: '/freeplan/v1/location',
+  trainsDashboardLocation: 'Berlin'
 };

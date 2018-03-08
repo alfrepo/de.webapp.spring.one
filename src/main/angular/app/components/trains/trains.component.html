@@ -1,0 +1,25 @@
+
+<!--TODO: add a map, which will display the GoogleMaps location of the TrainStation-->
+<!--TODO: add some info, where the current service comes from. Backend, external.-->
+
+<div class="container">
+  <h4>Train stations</h4>
+  <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+    <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">Name</th>
+      <th class="mdl-data-table__cell--non-numeric">Id</th>
+      <th class="mdl-data-table__cell--non-numeric">Longtitude</th>
+      <th class="mdl-data-table__cell--non-numeric">Latitude</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let location of locations | async">
+      <td style="text-align: left; width:20%">{{location.name}}</td>
+      <td style="text-align: left; width:10%">{{location.id}}</td>
+      <td style="text-align: left; width:10%">{{location.lat}}</td>
+      <td style="text-align: left; width:10%">{{location.lon}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
