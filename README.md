@@ -81,7 +81,7 @@ gradlew build
  ```
 
 ##### create a fat jar 
-Create a fat jar runnable via "java -jar complete.jar"
+Create a fat jar runnable via "java -jar complete.jar". The output will be located somewhere under "build/libs"
 ```
 gradlew bootJar
 ```
