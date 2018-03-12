@@ -13,7 +13,7 @@ export class LocationsService {
   }
 
   public getLocations(): Observable<Location[]> {
-    let uri: string = environment.trainsBase + environment.trainsApiUri + '/' + environment.trainsDashboardLocation;
+    let uri: string = environment.trainsBase + environment.trainsLocationsApiUri + '/' + environment.trainsLocationDashboard;
 
 
 

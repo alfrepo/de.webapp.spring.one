@@ -9,6 +9,6 @@ export const environment = {
   backendApiUri: '/api/users',
 
   trainsBase: 'https://api.deutschebahn.com',
-  trainsApiUri: '/freeplan/v1/location',
-  trainsDashboardLocation: 'Berlin'
+  trainsLocationsApiUri: '/freeplan/v1/location',
+  trainsLocationDashboard: 'Berlin'
 };
