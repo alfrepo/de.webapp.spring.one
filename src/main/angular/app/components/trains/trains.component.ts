@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {Train} from './train';
 import {TrainsService} from './trains.service';
 import {LocationsService} from "./locations.service";
+import {Location} from "./location";
 import {Observable} from "rxjs/Observable";
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 

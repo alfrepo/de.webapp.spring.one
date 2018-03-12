@@ -3,8 +3,9 @@ import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {Observable} from 'rxjs/Observable';
-import {User} from './user';
 import {environment} from "../../../environments/environment";
+import {User} from "./user";
+
 
 @Injectable()
 export class UsersService{
@@ -32,3 +33,5 @@ export class UsersService{
     return Observable.throw(errMsg);
   }
 }
+
+
