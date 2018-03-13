@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  backendBase: 'http://localhost:80',
+  backendBase: 'http://localhost:8080',
   backendApiUri: '/api/users',
 
   trainsBase: 'https://api.deutschebahn.com',
