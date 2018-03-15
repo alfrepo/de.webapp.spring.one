@@ -44,7 +44,9 @@ ng serve --host 0.0.0.0 --port 4201 --live-reload-port 49153
 
 
 ##### run the unit tests karma
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test` to execute the jasmine unit tests via [Karma](https://karma-runner.github.io).
+The jasmine tests must have the ending "*.spec.ts".
+They are located under "src/test/angular/app"
 
 ``` 
 ng test
