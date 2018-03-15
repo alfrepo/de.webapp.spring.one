@@ -9,7 +9,6 @@ import {UsersDetailsComponent} from "./components/user/userdetails.component";
 import {PageNotFoundComponent} from "./components/pagenotfound/pagenotfound.component";
 import {AboutComponent} from "./components/about/about.component";
 import {routerConfig} from './app.routes';
-import {HttpModule} from "@angular/http";
 import {TrainsComponent} from "./components/trains/trains.component";
 import {HttpClientModule} from "@angular/common/http";
 
@@ -21,7 +20,7 @@ import {HttpClientModule} from "@angular/common/http";
     AppComponent, UsersComponent, UsersDetailsComponent, PageNotFoundComponent, AboutComponent, TrainsComponent
   ],
   imports: [
-    BrowserModule, HttpModule, RouterModule.forRoot(routerConfig), HttpClientModule
+    BrowserModule, RouterModule.forRoot(routerConfig), HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,9 +14,9 @@
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
-      "test": "test.ts",
+      "test": "../../test/angular/test.ts",
       "tsconfig": "tsconfig.app.json",
-      "testTsconfig": "tsconfig.spec.json",
+      "testTsconfig": "../../test/angular/tsconfig.spec.json",
       "prefix": "app",
       "styles": [
         "styles.css"
@@ -40,7 +40,7 @@
       "exclude": "**/node_modules/**"
     },
     {
-      "project": "src/main/angular/tsconfig.spec.json",
+      "project": "/src/test/angular/tsconfig.spec.json",
       "exclude": "**/node_modules/**"
     },
     {

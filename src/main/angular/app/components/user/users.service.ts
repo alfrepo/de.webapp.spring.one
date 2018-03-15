@@ -27,6 +27,10 @@ export class UsersService{
     return observable;
   }
 
+  public getPageTitle(): String {
+    return "Users"
+  }
+
   private handleError(error: any) {
     let errMsg = 'UsersService: cannot get users from http server.';
     console.error(errMsg); // log to console instead
