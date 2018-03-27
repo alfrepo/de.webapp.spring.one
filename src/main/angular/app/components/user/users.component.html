@@ -1,7 +1,7 @@
 <!--TODO: add some info, where the current service comes from. Backend, external.-->
 
 <div class="container">
-  <h4>{{getPageTitle()}}</h4>
+  <h4>Users</h4>
 
   <p>This data come from the application own backend. The application own backend is a spring application.
     Its API may be available e.g. under <a href="http://localhost:8080/api/">http://localhost:8080/api/</a>, but the url-body depends on the deployment location.
@@ -18,7 +18,7 @@
     <tbody>
     <tr *ngFor="let user of users">
       <td style="text-align: left; width:10%">{{user.id}}</td>
-      <td style="text-align: left; width:20%">{{user.name}}</td>
+      <td style="text-align: left; width:20%">{{user.fullName}}</td>
       <td style="text-align: left; width:70%">{{user.email}}</td>
     </tr>
     </tbody>

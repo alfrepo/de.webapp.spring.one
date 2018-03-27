@@ -8,7 +8,7 @@ import {UsersService} from './users.service';
   providers: [UsersService],
 })
 export class UsersComponent {
-  private users: User[];
+  public users: User[];
 
   constructor(private usersService: UsersService) {
   }
