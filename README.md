@@ -108,7 +108,7 @@ After that the WAR may be deployed and will accept the URL. Otherwise the app wi
 
 
 ##  Building the whole application
-'''
+```
 # install npm, install angular-cli (provides the 'ng' command), java
 npm install 
 
@@ -121,4 +121,4 @@ gradlew build
 # package the fat jar with the frontend, backend and a tomcat server
 gradlew bootJar
 
-'''
+```
