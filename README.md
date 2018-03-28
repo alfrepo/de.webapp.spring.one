@@ -106,3 +106,25 @@ After that the WAR may be deployed and will accept the URL. Otherwise the app wi
 
 ![alt text](https://lh3.googleusercontent.com/-kxfIr26UFBM/Wp1g3MkkM8I/AAAAAAAAAEM/vWEQkwvDedQQxAUGitAt5b1dKTAXp8nPQCHMYCw/s0/2018-03-05_16-23-08.png "Run")
 
+
+##  Building the whole application
+
+To build the frontend, backend and to package the application as a fat jar do the following
+
+```
+# install npm, install angular-cli (provides the 'ng' command), java
+# DEPENDS ON THE OS
+
+# retrieve the npm dependencies
+npm install 
+
+# build the frontend
+ng build
+
+# build the backend
+gradlew build
+
+# package the fat jar with the frontend, backend and a tomcat server
+gradlew bootJar
+
+```
