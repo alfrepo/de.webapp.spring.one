@@ -1,0 +1,24 @@
+<!--TODO: add some info, where the current service comes from. Backend, external.-->
+
+<div class="container">
+  <h4>Environment</h4>
+
+  <p>This data come from the application own backend. The application own backend is a spring application.
+    Its API may be available e.g. under <a href="http://localhost:8080/api/">http://localhost:8080/api/</a>, but the url-body depends on the deployment location.
+  </p>
+
+  <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+    <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">Name</th>
+      <th class="mdl-data-table__cell--non-numeric">Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let variable of variables">
+      <td style="text-align: left; width:10%">{{variable.name}}</td>
+      <td style="text-align: left; width:20%">{{variable.value}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

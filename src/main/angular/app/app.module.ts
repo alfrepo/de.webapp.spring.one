@@ -11,13 +11,14 @@ import {AboutComponent} from "./components/about/about.component";
 import {routerConfig} from './app.routes';
 import {TrainsComponent} from "./components/trains/trains.component";
 import {HttpClientModule} from "@angular/common/http";
+import {EnvironmentComponent} from "./components/environment/environment.component";
 
 
 
 
 @NgModule({
   declarations: [
-    AppComponent, UsersComponent, UsersDetailsComponent, PageNotFoundComponent, AboutComponent, TrainsComponent
+    AppComponent, UsersComponent, UsersDetailsComponent, PageNotFoundComponent, AboutComponent, TrainsComponent, EnvironmentComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routerConfig), HttpClientModule
