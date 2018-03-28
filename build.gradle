@@ -62,7 +62,7 @@ task buildClientWatch(type: NpmTask, dependsOn: 'npmInstall') {
 // here we define, that task "buildClientDev" must be triggered on "gradlew bootrun"
 bootRun.dependsOn(buildClientDev)
 
-// here we define, that task "buildCLient" must be triggered on "gradlew build", which creates a fat jar
+// here we define, that task "buildClient" must be triggered on "gradlew build", which creates a fat jar
 jar.dependsOn(buildClient)
 
 

@@ -1,6 +1,7 @@
 package de.webapp.spring.one;
 
 
+import de.webapp.spring.one.environment.EnvironmentTestDataLoader;
 import de.webapp.spring.one.users.UserTestDataLoader;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,9 +12,14 @@ import org.springframework.context.annotation.Bean;
 public class Application extends SpringBootServletInitializer {
 
 	@Bean(initMethod = "loadData")
-	UserTestDataLoader RepositoryTestData() {
+	UserTestDataLoader RepositoryTestDataUsers() {
 		return new UserTestDataLoader();
 	}
+
+  @Bean(initMethod = "loadData")
+  EnvironmentTestDataLoader RepositoryTestDataEnvironment() {
+    return new EnvironmentTestDataLoader();
+  }
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);

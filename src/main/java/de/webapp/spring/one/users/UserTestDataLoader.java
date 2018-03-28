@@ -14,8 +14,8 @@ public class UserTestDataLoader {
     @Transactional
     public void loadData() {
         logger.info("init test data");
-        User toedter_k = new User("toedter_k", "Kai Toedter", "kai@toedter.com");
-        userRepository.save(toedter_k);
+        User miko_t = new User("miko_t", "Miko Taka", "miko@tako.com");
+        userRepository.save(miko_t);
         User doe_jo = new User("doe_jo", "John Doe", "john@doe.com");
         userRepository.save(doe_jo);
         User doe_ja = new User("doe_ja", "Jane Doe", "jane@doe.com");
