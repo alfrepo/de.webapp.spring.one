@@ -13,3 +13,5 @@ export const environment = {
   trainsLocationsApiUri: '/freeplan/v1/location',
   trainsLocationDashboard: 'Berlin'
 };
+
+

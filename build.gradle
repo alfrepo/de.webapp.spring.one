@@ -98,6 +98,6 @@ dependencies {
     compile "org.springframework.data:spring-data-rest-hal-browser"
 
     // entity requirements
-    compile "com.h2database:h2"
+    compile "com.h2database:h2:1.4.193"
     compile "javax.xml.bind:jaxb-api"
 }
