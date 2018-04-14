@@ -11,6 +11,10 @@ public class WebConfiguration {
     ServletRegistrationBean h2servletRegistration(){
         ServletRegistrationBean registrationBean = new ServletRegistrationBean( new WebServlet());
         registrationBean.addUrlMappings("/console/*");
+
+        // make the console remotely accessible
+        registrationBean.addInitParameter("webAllowOthers", "true");
+
         return registrationBean;
     }
 }
