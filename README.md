@@ -4,7 +4,10 @@ Has a backend a a frontend.
 ##  Frontend
 Angular4. `angular-cli` is used as cli  tool to automate angular tasks, like build, run, serve
 The Frontend was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.2.
-
+The Frontend can be build via 
+```
+ng build
+```
 
 ##### ng new my-dream-app
 creates a new Angular4 application 
