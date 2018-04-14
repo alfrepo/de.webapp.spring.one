@@ -67,6 +67,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ## Backend
+
 Spring Boot. Use the wrapper "gradlew" because it will download the right version of gradle
 
 
@@ -128,3 +129,25 @@ gradlew build
 gradlew bootJar
 
 ```
+
+
+## Database
+
+An embedded, in memory H2 database is used in this application.
+
+It can by reached using external SQL clients or an embedded H2-console, which is a lightweight SQL client too.
+
+#### H2 Console
+To open the H2 console, navigate to
+``http://localhost:8080/console/``
+
+Login to the DB using
+- Driver Class: org.h2.Driver
+- JDBC URL: jdbc:h2:mem:dbname
+- login: mydbuser
+- pass:  mydbpass
+
+#### External Client
+Use for example https://dbeaver.jkiss.org/ as an external SQL client.
+Use the same credentials, as for H2 Console. 
+It is important to use an up to date H2 JDBC driver, optimally the same as in the application: 1.4.197
