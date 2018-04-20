@@ -2,7 +2,6 @@ package de.webapp.spring.one;
 
 
 import de.webapp.spring.one.environment.EnvironmentTestDataLoader;
-import de.webapp.spring.one.users.UserTestDataLoader;
 import org.h2.tools.Server;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,10 +13,11 @@ import java.sql.SQLException;
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
 
-	@Bean(initMethod = "loadData")
-	UserTestDataLoader RepositoryTestDataUsers() {
-		return new UserTestDataLoader();
-	}
+// not needed anymore, since the db is initialized and fille via schema.sql and data.sql
+//	@Bean(initMethod = "loadData")
+//	UserTestDataLoader RepositoryTestDataUsers() {
+//		return new UserTestDataLoader();
+//	}
 
   @Bean(initMethod = "loadData")
   EnvironmentTestDataLoader RepositoryTestDataEnvironment() {
