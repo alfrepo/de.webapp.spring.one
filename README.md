@@ -78,18 +78,18 @@ Spring Boot. Use the wrapper "gradlew" because it will download the right versio
 Build and start Backend and Frontend. The frontend is build, because an npm task is defined as dependend
 
 ```
-gradlew bootRun
+./gradlew bootRun
 ```
 
 ##### build the backend
 ```
-gradlew build
+./gradlew build
  ```
 
 ##### create a fat jar 
 Create a fat jar runnable via "java -jar complete.jar". The output will be located somewhere under "build/libs"
 ```
-gradlew bootJar
+./gradlew bootJar
 ```
 
 ##### create a WAR  
@@ -101,7 +101,7 @@ To modify the base Frontend URL of the application - one should pass the URL, wh
 
 ```
 ng build --base-href /de.webapp.spring.one-0.0.1-SNAPSHOT/
-gradlew bootWar
+./gradlew bootWar
 ```
 After that the WAR may be deployed and will accept the URL. Otherwise the app will reutrn `404 Responses`.
 
