@@ -126,10 +126,10 @@ npm install
 ng build
 
 # build the backend
-gradlew build
+./gradlew build
 
 # package the fat jar with the frontend, backend and a tomcat server
-gradlew bootJar
+./gradlew bootJar
 
 ```
 
