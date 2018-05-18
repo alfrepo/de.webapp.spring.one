@@ -1,22 +1,24 @@
 language: java
 
+cache:
+  directories:
+    - $HOME/.gradle/wrapper/
+    - $HOME/.gradle/caches/
+
 os:
   - linux
 
+
+addons:
+  apt:
+    packages:
+    - npm
+    
 jdk:
   - oraclejdk9
-
-cache:
-  directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
-
-before_install
-  - ./gradlew nodeSetup
-
-install:
-  - ./gradlew npmInstall
-
+  
 script:
   - ./gradlew build
 
+notifications:
+  email: false
